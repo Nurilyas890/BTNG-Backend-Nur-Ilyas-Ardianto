@@ -1,59 +1,97 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# BTNG Backend — API Manajemen Mobil
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+REST API untuk mengelola data mobil, dibuat menggunakan Laravel sebagai project tugas akhir.
 
-## About Laravel
+## Teknologi
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP
+- Laravel
+- MySQL
+- Postman untuk pengujian API
+- Scramble untuk dokumentasi API
+- Clever Cloud untuk deployment
+- GitHub untuk version control
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fitur
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Menampilkan daftar mobil
+- Menampilkan detail mobil berdasarkan ID
+- Menambahkan data mobil
+- Memperbarui data mobil
+- Menghapus data mobil
+- Validasi input
+- Respons API dalam format JSON
+- Dokumentasi endpoint API
 
-## Learning Laravel
+## Deployment
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- **Base URL API:** `https://app-87a2d4d8-68e6-4130-aaae-65a2e68517ad.cleverapps.io/api/mobil`
+- **Dokumentasi API:** `https://app-87a2d4d8-68e6-4130-aaae-65a2e68517ad.cleverapps.io/docs/api`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Endpoint API
 
-## Laravel Sponsors
+| Method | Endpoint | Fungsi |
+|---|---|---|
+| GET | `/api/mobil` | Menampilkan daftar mobil |
+| GET | `/api/mobil/{mobil}` | Menampilkan detail mobil |
+| POST | `/api/mobil` | Menambahkan mobil |
+| PUT | `/api/mobil/{mobil}` | Memperbarui mobil |
+| PATCH | `/api/mobil/{mobil}` | Memperbarui sebagian data mobil |
+| DELETE | `/api/mobil/{mobil}` | Menghapus mobil |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Contoh Request
 
-### Premium Partners
+Contoh menambahkan mobil menggunakan method `POST` dengan Body berformat JSON:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```json
+{
+  "nama": "Avanza Veloz",
+  "brand": "Toyota",
+  "harga": 250000000,
+  "tahun": 2024,
+  "transmisi": "Matic",
+  "bahan_bakar": "Bensin",
+  "status": "tersedia"
+}
+```
 
-## Contributing
+Sesuaikan nilai dengan aturan validasi yang diterapkan pada API.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Cara Menjalankan Secara Lokal
 
-## Code of Conduct
+1. Clone repository ini.
+2. Masuk ke direktori project.
+3. Instal dependency:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+   ```bash
+   composer install
+   ```
 
-## Security Vulnerabilities
+4. Salin `.env.example` menjadi `.env`, lalu sesuaikan konfigurasi database.
+5. Buat application key:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+   ```bash
+   php artisan key:generate
+   ```
 
-## License
+6. Jalankan migrasi database:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   ```bash
+   php artisan migrate
+   ```
+
+7. Jalankan server lokal:
+
+   ```bash
+   php artisan serve
+   ```
+
+## Pengujian
+
+Endpoint API diuji menggunakan Postman. Pengujian pada deployment Clever Cloud mencakup GET, POST, PUT, dan DELETE.
+
+## Repository
+
+Kode sumber tersedia di GitHub:
+
+https://github.com/Nurilyas890/BTNG-Backend-Nur-Ilyas-Ardianto
